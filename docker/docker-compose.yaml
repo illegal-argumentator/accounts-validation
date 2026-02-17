@@ -1,0 +1,54 @@
+version: "3.8"
+
+networks:
+  daniel-accounts-validation:
+    driver: bridge
+
+services:
+  app-daniel-accounts-validation:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - daniel-accounts-validation
+    depends_on:
+      - postgres-daniel-accounts-validation
+      - nstbrowser-daniel-accounts-validation
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${API_PORT}:8080"
+
+  postgres-daniel-accounts-validation:
+    image: postgres:16
+    restart: unless-stopped
+    networks:
+      - daniel-accounts-validation
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - pgdata-daniel-accounts-validation:/var/lib/postgresql/data
+
+  nstbrowser-daniel-accounts-validation:
+    image: nstbrowser/browserless:143-202512151200.v1
+    restart: unless-stopped
+    networks:
+      - daniel-accounts-validation
+    environment:
+      TOKEN: ${NST_TOKEN}
+      VNC_PORT: ${VNC_PORT}
+      VNC_PASSWORD: ${VNC_PASSWORD}
+    ports:
+      - "${NST_PORT}:8848"
+      - "${VNC_PORT}:6900"
+volumes:
+  pgdata-daniel-accounts-validation:
