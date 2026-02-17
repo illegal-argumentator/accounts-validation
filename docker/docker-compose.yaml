@@ -39,7 +39,7 @@ services:
       - pgdata-daniel-accounts-validation:/var/lib/postgresql/data
 
   nstbrowser-daniel-accounts-validation:
-    image: nstbrowser/browserless:143-202512151200.v1
+    image: nstbrowser/browserless:140-202511181200.v2
     restart: unless-stopped
     networks:
       - daniel-accounts-validation
