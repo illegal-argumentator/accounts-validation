@@ -13,10 +13,10 @@ public class OkHttpConfig {
     public OkHttpClient okHttpClient() {
 
         return new OkHttpClient().newBuilder()
-                .callTimeout(Duration.ofMinutes(1))
-                .connectTimeout(Duration.ofMinutes(1))
-                .readTimeout(Duration.ofMinutes(1))
-                .writeTimeout(Duration.ofMinutes(1))
+                .callTimeout(Duration.ofSeconds(30))
+                .connectTimeout(Duration.ofSeconds(30))
+                .readTimeout(Duration.ofSeconds(30))
+                .writeTimeout(Duration.ofSeconds(30))
                 .build();
     }
 }
