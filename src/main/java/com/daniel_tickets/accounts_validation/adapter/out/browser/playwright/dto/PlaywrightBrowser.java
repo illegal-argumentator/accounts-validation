@@ -44,7 +44,7 @@ public class PlaywrightBrowser implements LocalBrowser {
                 action.run();;
             }
         } catch (PlaywrightException e) {
-            throw new ElementNotFoundException("Element %s not found.".formatted(selector));
+            log.warn("Element %s not found.".formatted(selector));
         }
     }
 
