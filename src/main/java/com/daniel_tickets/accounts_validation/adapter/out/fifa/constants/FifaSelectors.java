@@ -4,7 +4,7 @@ public final class FifaSelectors {
 
     public static final String COOKIE_ACCEPT_BUTTON = "#onetrust-button-group-parent #onetrust-accept-btn-handler";
     public static final String SUBMIT_BUTTON = "#frmLogin #loginFormSubmitBtn";
-    public static final String POP_UP_CLOSE_BUTTON = "pop-up_closeIcon__etsqq";
+    public static final String POP_UP_CLOSE_BUTTON = "div[class*='popupContainer'] div[class*='closeIcon']";
 
     public static final String EMAIL_INPUT = "#frmLogin #email";
     public static final String PASSWORD_INPUT = "#frmLogin #password";

@@ -32,11 +32,9 @@ public class FifaValidationAdapter implements FifaValidationPort {
         return processValidation(user);
     }
 
-//    @SneakyThrows
+    @SneakyThrows
     private boolean processValidation(User user) {
-        String nstProfile = initializeNstProfile();
-        System.out.println(nstProfile);
-        try (LocalBrowser localBrowser = browserInitializer.initBrowserOverCdp(nstProfile)) {
+        try (LocalBrowser localBrowser = browserInitializer.initBrowserOverCdp(initializeNstProfile())) {
 
             log.info("Successfully initialized browser.");
             localBrowser.navigate(SIGN_IN_URL);
@@ -45,11 +43,7 @@ public class FifaValidationAdapter implements FifaValidationPort {
             fifaBrowserAuthService.login(user, localBrowser);
 
             log.info("Processing ticket validation.");
-            boolean verify = fifaTicketVerificationService.verify(localBrowser);
-            Thread.sleep(100_000);
-            return verify;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            return fifaTicketVerificationService.verify(localBrowser);
         }
     }
 

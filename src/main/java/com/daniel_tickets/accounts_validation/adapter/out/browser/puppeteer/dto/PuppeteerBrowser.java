@@ -47,8 +47,6 @@ public class PuppeteerBrowser implements LocalBrowser {
             ElementHandle handle = page.waitForSelector(selector, options);
             if (handle != null) {
                 action.run();
-            } else {
-                throw new ElementNotFoundException("Element %s not found.".formatted(selector));
             }
         } catch (Exception e) {
             throw new ElementNotFoundException("Element %s not found.".formatted(selector));
