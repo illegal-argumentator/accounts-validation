@@ -22,7 +22,7 @@ public class FifaBrowserAuthService {
         WaitUtil.waitRandomlyInRange(1200, 1500);
         localBrowser.clickRandomly(SUBMIT_BUTTON);
 
-        localBrowser.waitForSelector(POP_UP_CLOSE_BUTTON, 10_000, () -> localBrowser.click(POP_UP_CLOSE_BUTTON));
+        localBrowser.waitForSelector(POP_UP_CLOSE_BUTTON, 15_000, () -> localBrowser.click(POP_UP_CLOSE_BUTTON));
     }
 
 }
