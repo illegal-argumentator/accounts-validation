@@ -13,7 +13,7 @@ public class FifaBrowserAuthService {
     public void login(User user, LocalBrowser localBrowser) {
         localBrowser.waitForLoadState();
 
-        localBrowser.waitForSelector(COOKIE_ACCEPT_BUTTON, 10_000, () -> localBrowser.click(COOKIE_ACCEPT_BUTTON));
+        localBrowser.waitForSelector(COOKIE_ACCEPT_BUTTON, 20_000, () -> localBrowser.click(COOKIE_ACCEPT_BUTTON));
 
         WaitUtil.waitRandomlyInRange(2500, 3000);
         localBrowser.fill(EMAIL_INPUT, user.email());

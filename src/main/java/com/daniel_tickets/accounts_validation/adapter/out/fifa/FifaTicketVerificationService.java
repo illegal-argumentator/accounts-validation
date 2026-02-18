@@ -16,9 +16,11 @@ public class FifaTicketVerificationService {
         WaitUtil.waitRandomlyInRange(1200, 2000);
         localBrowser.waitForSelector(EXPLORE_DETAILS_DIV, 10_000, () -> localBrowser.click(EXPLORE_DETAILS_DIV));
 
+        System.out.println("learn more");
         WaitUtil.waitRandomlyInRange(1200, 2000);
         localBrowser.waitForSelector(LEARN_MORE_DIV, 10_000, () -> localBrowser.click(LEARN_MORE_DIV));
 
+        System.out.println("after learn more");
         WaitUtil.waitRandomlyInRange(1200, 2000);
         localBrowser.waitForSelector(OTP_INPUT, 10_000, () -> localBrowser.fill(OTP_INPUT, "Hello"));
         return false;
