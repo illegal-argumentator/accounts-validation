@@ -8,7 +8,7 @@ public class CreateProfileRequestBuilder {
         CreateProfileRequest request = new CreateProfileRequest();
         request.setName(profileName);
         request.setPlatform("Windows");
-//        request.setProxy(proxyUrl);
+        request.setProxy(proxyUrl);
         request.setGroupId(groupId);
 
         return request;
